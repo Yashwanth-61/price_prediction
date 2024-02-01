@@ -42,6 +42,11 @@
 #   Container Registry vs Artifact Registry   - https://cloud.google.com/blog/products/application-development/understanding-artifact-registry-vs-container-registry
 #   Principle of least privilege              - https://cloud.google.com/blog/products/identity-security/dont-get-pwned-practicing-the-principle-of-least-privilege
 
+- uses: 'google-github-actions/auth@v2'
+  with:
+    project_id: 'my-project'
+    workload_identity_provider: 'projects/470250575738/locations/global/workloadIdentityPools/github/providers/my-repo'
+    
 name: Build and Deploy to Cloud Run
 
 on:
