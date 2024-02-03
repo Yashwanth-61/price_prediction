@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation template for creating an EC2 Key Pair
+
+Resources:
+  MyKeyPair:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: my-key-pair # Change the KeyName as needed
+
+Outputs:
+  KeyPairName:
+    Description: Name of the newly created EC2 Key Pair
+    Value: !Ref MyKeyPair
+    Export:
+      Name: MyKeyPairName
