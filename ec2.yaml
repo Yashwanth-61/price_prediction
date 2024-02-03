@@ -42,6 +42,16 @@ MyInstance:
         DeviceIndex: "0"
         SubnetId: 
           Ref: !Ref MyPublicSubnet
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: "ami-090793d48e56d862c"
+      InstanceType: t2.micro       # Specify your desired instance type
+      KeyName: !Ref MyKeyPair
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: "true"
+          DeviceIndex: 0
+          DeleteOnTermination: "true"
 
 Outputs:
   VPCId:
