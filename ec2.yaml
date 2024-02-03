@@ -6,8 +6,8 @@ Resources:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: 10.0.0.0/16
-      EnableDnsSupport: true
-      EnableDnsHostnames: true
+      EnableDnsSupport: "true"
+      EnableDnsHostnames: "true"
 
   MyInternetGateway:
     Type: AWS::EC2::InternetGateway
@@ -23,7 +23,7 @@ Resources:
     Properties:
       VpcId: !Ref MyVPC
       CidrBlock: 10.0.0.0/24
-      MapPublicIpOnLaunch: true
+      MapPublicIpOnLaunch: "true"
 
   MyKeyPair:
     Type: AWS::EC2::KeyPair
@@ -37,8 +37,8 @@ Resources:
       InstanceType: t2.micro
       KeyName: !Ref MyKeyPair
       NetworkInterfaces:
-        - AssociatePublicIpAddress: true
-          DeviceIndex: 0
+        - AssociatePublicIpAddress: "true"
+          DeviceIndex: "0"
           SubnetId: !Ref MyPublicSubnet
       UserData:
         Fn::Base64: !Sub |
