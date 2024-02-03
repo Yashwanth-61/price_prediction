@@ -30,18 +30,6 @@ Resources:
     Properties:
       KeyName: my-key-pair
 
-        
-MyInstance: 
-  Type: AWS::EC2::Instance
-  Properties: 
-    ImageId: "ami-090793d48e56d862c"
-    KeyName: 
-      Ref: !Ref MyKeyPair
-    NetworkInterfaces: 
-      - AssociatePublicIpAddress: "true"
-        DeviceIndex: "0"
-        SubnetId: 
-          Ref: !Ref MyPublicSubnet
   MyInstance:
     Type: AWS::EC2::Instance
     Properties:
