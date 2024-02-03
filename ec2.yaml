@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Simple CloudFormation template for creating an EC2 instance
 
 Resources:
-  EC2Instance:
+  MyInstance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: "ami-090793d48e56d862c"
