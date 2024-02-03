@@ -30,11 +30,10 @@ Resources:
     Properties:
       KeyName: my-key-pair
 
-  MyInstance:
+  MyInstance: 
     Type: AWS::EC2::Instance
-    Properties:
-      ImageId: ami-090793d48e56d862c
-      InstanceType: t2.micro
+    Properties: 
+      ImageId: "ami-090793d48e56d862c"
       KeyName: !Ref MyKeyPair
       NetworkInterfaces:
         - AssociatePublicIpAddress: "true"
@@ -46,7 +45,16 @@ Resources:
           yum update -y
           yum install -y docker
           systemctl start docker
-          systemctl enable docker
+          systemctl enable docker          
+      BlockDeviceMappings: 
+      - DeviceName: "/dev/sdm"
+        Ebs: 
+          VolumeType: "io1"
+          Iops: "200"
+          DeleteOnTermination: "false"
+          VolumeSize: "20"
+      - DeviceName: "/dev/sdk"
+        NoDevice: {}          
 
 Outputs:
   VPCId:
