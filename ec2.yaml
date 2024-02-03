@@ -2,54 +2,8 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: Simple CloudFormation template for creating an EC2 instance
 
 Resources:
-  MyInstance:
+  EC2Instance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: "ami-090793d48e56d862c"
-      InstanceType: t2.micro       # Specify your desired instance type
-      KeyName: !Ref MyKeyPair         # Specify your existing EC2 KeyPair name
-
-  MyVPC:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: 10.0.0.0/16
-      EnableDnsSupport: "true"
-      EnableDnsHostnames: "true"
-
-  MyInternetGateway:
-    Type: AWS::EC2::InternetGateway
-
-  AttachGateway:
-    Type: AWS::EC2::VPCGatewayAttachment
-    Properties:
-      VpcId: !Ref MyVPC
-      InternetGatewayId: !Ref MyInternetGateway
-
-  MyPublicSubnet:
-    Type: AWS::EC2::Subnet
-    Properties:
-      VpcId: !Ref MyVPC
-      CidrBlock: 10.0.0.0/24
-      MapPublicIpOnLaunch: "true"
-
-  MyKeyPair:
-    Type: AWS::EC2::KeyPair
-    Properties:
-      KeyName: my-key-pair
-
-Outputs:
-  VPCId:
-    Description: ID of the created VPC
-    Value: !Ref MyVPC
-
-  PublicSubnetId:
-    Description: ID of the created public subnet
-    Value: !Ref MyPublicSubnet
-
-  KeyPairName:
-    Description: Name of the created key pair
-    Value: !Ref MyKeyPair
-
-  InstanceId:
-    Description: ID of the created EC2 instance
-    Value: !Ref MyInstance
+      InstanceType: t2.micro
