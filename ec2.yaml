@@ -33,7 +33,7 @@ Resources:
   MyInstance:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-0c55b159cbfafe1f0  # Amazon Linux 2
+      ImageId: ami-090793d48e56d862c
       InstanceType: t2.micro
       KeyName: !Ref MyKeyPair
       NetworkInterfaces:
